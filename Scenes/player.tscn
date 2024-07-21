@@ -1,0 +1,140 @@
+[gd_scene load_steps=24 format=3 uid="uid://uorw6bihwwn2"]
+
+[ext_resource type="Texture2D" uid="uid://d4c8khmnka3ul" path="res://Assets/kenney_platformer-art-extended-enemies/Alien sprites/alienYellow_stand.png" id="1_0dm25"]
+[ext_resource type="Script" path="res://Scripts/playerScript.gd" id="1_05dn8"]
+[ext_resource type="Texture2D" uid="uid://bq8cq86geilow" path="res://Assets/kenney_platformer-art-extended-enemies/Alien sprites/alienYellow_climb1.png" id="2_e6md8"]
+[ext_resource type="Texture2D" uid="uid://db6wdiyrpttkd" path="res://Assets/kenney_platformer-art-extended-enemies/Alien sprites/alienYellow_climb2.png" id="3_0houj"]
+[ext_resource type="Texture2D" uid="uid://t4obyiykdvom" path="res://Assets/kenney_platformer-art-extended-enemies/Alien sprites/alienYellow_walk1.png" id="3_4tfe4"]
+[ext_resource type="Texture2D" uid="uid://ov5v7q3xs4r6" path="res://Assets/kenney_platformer-art-extended-enemies/Alien sprites/alienYellow_walk2.png" id="4_2b41y"]
+[ext_resource type="Texture2D" uid="uid://cgtfxwpohcgr5" path="res://Assets/kenney_platformer-art-extended-enemies/Alien sprites/alienYellow_hurt.png" id="5_c2aln"]
+[ext_resource type="Texture2D" uid="uid://bx2brciibpn03" path="res://Assets/kenney_platformer-art-extended-enemies/Alien sprites/alienYellow_jump.png" id="6_5dyna"]
+[ext_resource type="Texture2D" uid="uid://cprp226ckyxhk" path="res://Assets/kenney_platformer-art-extended-enemies/Alien sprites/alienYellow_swim1.png" id="7_6bmu1"]
+[ext_resource type="Texture2D" uid="uid://bhakg26dshqpx" path="res://Assets/kenney_platformer-art-extended-enemies/Alien sprites/alienYellow_swim2.png" id="8_jlmji"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04toy"]
+atlas = ExtResource("2_e6md8")
+region = Rect2(0, 0, 66, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7l2ly"]
+atlas = ExtResource("3_0houj")
+region = Rect2(0, 0, 66, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elhc2"]
+atlas = ExtResource("1_0dm25")
+region = Rect2(0, 0, 66, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsyin"]
+atlas = ExtResource("5_c2aln")
+region = Rect2(0, 0, 69, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k4bg"]
+atlas = ExtResource("1_0dm25")
+region = Rect2(0, 0, 66, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhulo"]
+atlas = ExtResource("6_5dyna")
+region = Rect2(0, 0, 67, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8w3t"]
+atlas = ExtResource("1_0dm25")
+region = Rect2(0, 0, 66, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_286gv"]
+atlas = ExtResource("7_6bmu1")
+region = Rect2(0, 0, 69, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68x1f"]
+atlas = ExtResource("8_jlmji")
+region = Rect2(0, 0, 70, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xendw"]
+atlas = ExtResource("3_4tfe4")
+region = Rect2(0, 0, 68, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4dm1"]
+atlas = ExtResource("4_2b41y")
+region = Rect2(0, 0, 70, 86)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_su5js"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04toy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7l2ly")
+}],
+"loop": true,
+"name": &"Climbing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elhc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsyin")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k4bg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhulo")
+}],
+"loop": true,
+"name": &"Jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8w3t")
+}],
+"loop": true,
+"name": &"Standing",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_286gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68x1f")
+}],
+"loop": true,
+"name": &"Swimming",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xendw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4dm1")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0t54l"]
+radius = 31.0
+height = 82.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_05dn8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -38)
+sprite_frames = SubResource("SpriteFrames_su5js")
+animation = &"Climbing"
+autoplay = "Standing"
+frame_progress = 0.481337
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -38)
+shape = SubResource("CapsuleShape2D_0t54l")
