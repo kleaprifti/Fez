@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b17fyu0w8vlru"]
 
-[ext_resource type="PackedScene" uid="uid://uorw6bihwwn2" path="res://Scenes/player.tscn" id="1_781bk"]
+[ext_resource type="PackedScene" uid="uid://uorw6bihwwn2" path="res://Scenes/Player.tscn" id="1_781bk"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_aw6no"]
 distance = -1.0
