@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://uorw6bihwwn2"]
+[gd_scene load_steps=23 format=3 uid="uid://uorw6bihwwn2"]
 
 [ext_resource type="Texture2D" uid="uid://d4c8khmnka3ul" path="res://Assets/kenney_platformer-art-extended-enemies/Alien sprites/alienYellow_stand.png" id="1_0dm25"]
 [ext_resource type="Script" path="res://Scripts/playerScript.gd" id="1_05dn8"]
@@ -26,10 +26,6 @@ region = Rect2(0, 0, 66, 82)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hsyin"]
 atlas = ExtResource("5_c2aln")
 region = Rect2(0, 0, 69, 81)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8k4bg"]
-atlas = ExtResource("1_0dm25")
-region = Rect2(0, 0, 66, 82)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xhulo"]
 atlas = ExtResource("6_5dyna")
@@ -81,9 +77,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8k4bg")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_xhulo")
 }],
 "loop": true,
@@ -131,9 +124,8 @@ script = ExtResource("1_05dn8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -38)
 sprite_frames = SubResource("SpriteFrames_su5js")
-animation = &"Climbing"
+animation = &"Jumping"
 autoplay = "Standing"
-frame_progress = 0.481337
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -38)
