@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjkdcrw6pva4k"]
+
+[ext_resource type="Script" path="res://Scripts/SpinnerScript.gd" id="1_pye8o"]
+[ext_resource type="Texture2D" uid="uid://bm5gcfsgwbcw4" path="res://Assets/kenney_platformer-art-extended-enemies/Enemy sprites/spinner_dead.png" id="2_kh6da"]
+[ext_resource type="Texture2D" uid="uid://cv2u6jth21jfy" path="res://Assets/kenney_platformer-art-extended-enemies/Enemy sprites/spinner.png" id="2_xf0et"]
+[ext_resource type="Texture2D" uid="uid://cndoj40ry6fwu" path="res://Assets/kenney_platformer-art-extended-enemies/Enemy sprites/spinner_hit.png" id="3_6a4vk"]
+[ext_resource type="Texture2D" uid="uid://dfmrkt3narj7u" path="res://Assets/kenney_platformer-art-extended-enemies/Enemy sprites/spinner_spin.png" id="3_sv1f5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ttc2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kh6da")
+}],
+"loop": true,
+"name": &"Die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6a4vk")
+}],
+"loop": true,
+"name": &"Hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xf0et")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sv1f5")
+}],
+"loop": true,
+"name": &"Spin",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_74flb"]
+radius = 31.0161
+
+[node name="Spinner" type="Node2D"]
+script = ExtResource("1_pye8o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3ttc2")
+animation = &"Spin"
+autoplay = "Spin"
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_74flb")
+
+[connection signal="body_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_body_entered"]

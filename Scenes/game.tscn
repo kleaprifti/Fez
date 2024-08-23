@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b17fyu0w8vlru"]
+[gd_scene load_steps=5 format=3 uid="uid://b17fyu0w8vlru"]
 
 [ext_resource type="PackedScene" uid="uid://uorw6bihwwn2" path="res://Scenes/Player.tscn" id="1_781bk"]
+[ext_resource type="PackedScene" uid="uid://bjkdcrw6pva4k" path="res://Scenes/Enemies/Spinner.tscn" id="2_teoyx"]
+[ext_resource type="PackedScene" uid="uid://b4idp423s0bj8" path="res://Scenes/Enemies/HalfSpinner.tscn" id="3_b6re5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_aw6no"]
 distance = -1.0
@@ -19,3 +21,9 @@ position = Vector2(1, 363)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1, -2)
 shape = SubResource("WorldBoundaryShape2D_aw6no")
+
+[node name="Enemy" parent="." instance=ExtResource("2_teoyx")]
+position = Vector2(332, 305)
+
+[node name="HalfSpinner" parent="." instance=ExtResource("3_b6re5")]
+position = Vector2(112, 344)
