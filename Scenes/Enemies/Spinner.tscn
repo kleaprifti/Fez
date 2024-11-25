@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bi8buavhoct8o"]
+
+[ext_resource type="Texture2D" uid="uid://bm5gcfsgwbcw4" path="res://Assets/kenney_platformer-art-extended-enemies/Enemy sprites/spinner_dead.png" id="1_4frmv"]
+[ext_resource type="Texture2D" uid="uid://cndoj40ry6fwu" path="res://Assets/kenney_platformer-art-extended-enemies/Enemy sprites/spinner_hit.png" id="2_18r41"]
+[ext_resource type="Texture2D" uid="uid://cv2u6jth21jfy" path="res://Assets/kenney_platformer-art-extended-enemies/Enemy sprites/spinner.png" id="3_sww8o"]
+[ext_resource type="Texture2D" uid="uid://dfmrkt3narj7u" path="res://Assets/kenney_platformer-art-extended-enemies/Enemy sprites/spinner_spin.png" id="4_xtr7v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ttc2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4frmv")
+}],
+"loop": true,
+"name": &"Die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_18r41")
+}],
+"loop": true,
+"name": &"Hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sww8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xtr7v")
+}],
+"loop": true,
+"name": &"Spin",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_74flb"]
+radius = 31.0161
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3ttc2")
+animation = &"Spin"
+autoplay = "Spin"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_74flb")

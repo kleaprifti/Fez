@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://b17fyu0w8vlru"]
+
+[ext_resource type="PackedScene" uid="uid://uorw6bihwwn2" path="res://Scenes/player.tscn" id="1_3wcf0"]
+[ext_resource type="PackedScene" uid="uid://bi8buavhoct8o" path="res://Scenes/Enemies/Spinner.tscn" id="2_al3ut"]
+[ext_resource type="PackedScene" uid="uid://do0tcfa3i5iha" path="res://Scenes/Enemies/HalfSpinner.tscn" id="3_xyxdd"]
+[ext_resource type="Texture2D" uid="uid://cj6wwxcyoyt5k" path="res://Assets/kenney_platformer-art-extended-enemies/Alien sprites/alienYellow_badge2.png" id="4_8glfa"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_aw6no"]
+distance = -1.0
+
+[node name="Game" type="Node2D"]
+position = Vector2(572, 229)
+
+[node name="Player" parent="." instance=ExtResource("1_3wcf0")]
+position = Vector2(-733, 468)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(217, -191)
+
+[node name="Lives" type="Panel" parent="Player/Camera2D"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 344.0
+offset_top = -277.0
+offset_right = 516.0
+offset_bottom = -237.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/Camera2D/Lives"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 165.0
+offset_bottom = 37.0
+alignment = 1
+
+[node name="Life" type="TextureRect" parent="Player/Camera2D/Lives/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_8glfa")
+expand_mode = 2
+
+[node name="Life2" type="TextureRect" parent="Player/Camera2D/Lives/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_8glfa")
+expand_mode = 2
+
+[node name="Life3" type="TextureRect" parent="Player/Camera2D/Lives/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_8glfa")
+expand_mode = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-350, 495)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-208, 78)
+shape = SubResource("WorldBoundaryShape2D_aw6no")
+
+[node name="RigidBody2D" parent="." instance=ExtResource("3_xyxdd")]
+position = Vector2(-487, 558)
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("2_al3ut")]
+position = Vector2(-293, 503)
