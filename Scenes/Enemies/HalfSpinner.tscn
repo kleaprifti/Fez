@@ -9,6 +9,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
+
 "texture": ExtResource("1_v24fl")
 }],
 "loop": true,

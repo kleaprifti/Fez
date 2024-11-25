@@ -1,14 +1,8 @@
 extends Control
 
 
-
-
 func _on_play_pressed():
-<<<<<<< Updated upstream
-	pass # Replace with function body.
-=======
 	get_tree().change_scene_to_file("res://Scenes/testGame.tscn")
->>>>>>> Stashed changes
 
 
 func _on_options_pressed():
