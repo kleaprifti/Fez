@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b17fyu0w8vlru"]
+[gd_scene load_steps=8 format=3 uid="uid://b17fyu0w8vlru"]
 
 [ext_resource type="PackedScene" uid="uid://uorw6bihwwn2" path="res://Scenes/player.tscn" id="1_3wcf0"]
 [ext_resource type="PackedScene" uid="uid://bi8buavhoct8o" path="res://Scenes/Enemies/Spinner.tscn" id="2_al3ut"]
 [ext_resource type="PackedScene" uid="uid://do0tcfa3i5iha" path="res://Scenes/Enemies/HalfSpinner.tscn" id="3_xyxdd"]
 [ext_resource type="Texture2D" uid="uid://cj6wwxcyoyt5k" path="res://Assets/kenney_platformer-art-extended-enemies/Alien sprites/alienYellow_badge2.png" id="4_8glfa"]
 [ext_resource type="Script" path="res://Scripts/Pause_menu.gd" id="5_nwx7i"]
+[ext_resource type="Script" path="res://Scripts/Game_manager.gd" id="6_3hpxe"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_aw6no"]
 distance = -1.0
@@ -87,6 +88,7 @@ offset_left = 8.0
 offset_top = 3.0
 offset_right = 165.0
 offset_bottom = 37.0
+rotation = -0.001571
 alignment = 1
 
 [node name="Life" type="TextureRect" parent="Player/Camera2D/Lives/HBoxContainer"]
@@ -119,6 +121,11 @@ position = Vector2(35, 379)
 
 [node name="RigidBody2D2" parent="." instance=ExtResource("2_al3ut")]
 position = Vector2(229, 324)
+
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("hearts")]
+unique_name_in_owner = true
+script = ExtResource("6_3hpxe")
+hearts = [NodePath("../Player/Camera2D/Lives/HBoxContainer/Life"), NodePath("../Player/Camera2D/Lives/HBoxContainer/Life2"), NodePath("../Player/Camera2D/Lives/HBoxContainer/Life3")]
 
 [connection signal="pressed" from="Player/Camera2D/PauseMenu/PausePanel/VBoxContainer/Button" to="Player/Camera2D/PauseMenu" method="_on_button_pressed"]
 [connection signal="pressed" from="Player/Camera2D/PauseMenu/PausePanel/VBoxContainer/Button2" to="Player/Camera2D/PauseMenu" method="_on_button_2_pressed"]

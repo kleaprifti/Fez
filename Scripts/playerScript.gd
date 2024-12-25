@@ -8,6 +8,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func jump():
 	velocity.y = JUMP_VELOCITY
+	
+func jump_side(x):
+	velocity.y = JUMP_VELOCITY
+	velocity.x = x
 
 @onready var animated_sprite = $AnimatedSprite2D
 
