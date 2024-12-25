@@ -22,6 +22,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			print("Decrease Health!")
 			game_manager.decrease_health()
 			if (x_delta > 0):
-				body.jump_side(5000)
+				body.jump_side(500)
 			else:
 				body.jump_side(-500)
