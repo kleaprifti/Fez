@@ -19,6 +19,12 @@ run/main_scene="res://Scenes/Menus/Lobby.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=426
+window/size/viewport_height=240
+window/stretch/mode="canvas_items"
+
 [input]
 
 pause={
